@@ -6,7 +6,7 @@ async function createUser(email, password) {
   const response = await fetch("/api/auth/signup", {
     method: "POST",
     body: JSON.stringify({ email, password }),
-    headers: { "Content-Type": "application/json" }
+    headers: { "Content-Type": "application/json" },
   });
   const data = await response.json();
 
@@ -21,7 +21,7 @@ function AuthForm() {
   const passwordInputRef = useRef();
 
   function switchAuthModeHandler() {
-    setIsLogin(prevState => !prevState);
+    setIsLogin((prevState) => !prevState);
   }
 
   async function submitHandler(event) {
@@ -39,7 +39,7 @@ function AuthForm() {
         email: enteredEmail,
         password: enteredPassword,
       });
-      console.log(reults);
+      console.log(result);
     } else {
       // register create user
       try {
@@ -47,7 +47,6 @@ function AuthForm() {
         console.log(result);
       } catch (e) {
         console.log(e);
-      } finally {
       }
     }
   }
