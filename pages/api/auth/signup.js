@@ -16,7 +16,7 @@ async function handler(req, res) {
     password.trim().length < 7
   ) {
     res.status(422).json({
-      message: "invalid input - password must have at least 7 char long"
+      message: "invalid input not email@ || password must have at least 7 char long"
     });
     return;
   }
@@ -38,7 +38,8 @@ async function handler(req, res) {
     email: email,
     password: hashedPassword
   });
-
+  console.log('new User register Result of ...');
+  console.log(result);
   res.status(201).json({ message: "Created User!" });
 }
 
